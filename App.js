@@ -1,9 +1,9 @@
 // import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import { StyleSheet, SafeAreaView, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
-import 'react-native-gesture-handler';
 import Navigator from './routes/AuthStack'
 import AuthStack from './routes/AuthStack';
 import { NavigationContainer } from '@react-navigation/native';
