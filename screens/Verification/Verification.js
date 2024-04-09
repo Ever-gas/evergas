@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     wrapper: {
         paddingVertical: 60,
         paddingHorizontal: 20,
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
 
     },
     header: {
