@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
 import Navigator from './routes/AuthStack'
 import AuthStack from './routes/AuthStack';
+import MainStack from './routes/MainStack';
 import { NavigationContainer } from '@react-navigation/native';
 
 // const getFonts = () => Font.loadAsync({
@@ -38,8 +39,11 @@ const App = () => {
         {/*<ForgotPassword />*/}
         {/*<ResetPassword />*/}
         <NavigationContainer>
-          <AuthStack />
+          <AuthStack /> 
         </NavigationContainer>
+        {/* <NavigationContainer> 
+          <MainStack/>
+        </NavigationContainer> */}
 
       </View>
     </TouchableWithoutFeedback>
