@@ -55,7 +55,7 @@ const SignIn = (props) => {
             <TouchableOpacity onPress={() => Navigate('ForgotPassword')}  >
                 <Text style={styles.fgtPword} >Forgot Password?</Text>
             </TouchableOpacity>
-            <AuthBtn title='Sign In' />
+            <AuthBtn title='Sign In' action={() => Navigate('Dashboard')}/>
             <TouchableOpacity onPress={() => Navigate('SignUp')} style={styles.NoAcct} >
                 <Text style={styles.NoAcctText} >Don’t have an account?</Text>
                 <Text style={styles.AuthText} >Sign Up</Text>
