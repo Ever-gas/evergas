@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity,  ScrollV
 import { useState } from 'react'
 import { SIZES } from '../../assets/Constants/SIZES'
 import { MessageNotif } from 'iconsax-react-native'
+import GasLevelEstimation from '../../components/GasLevelEstimation/GasLevelEstimation'
 
 const Dashboard = (props) => {
     const { StatusBarManager } = NativeModules;
@@ -27,6 +28,7 @@ const Dashboard = (props) => {
                         <MessageNotif size="24" color="#017737" variant="Bold" />
                     </TouchableOpacity>
                 </View>
+                <GasLevelEstimation/>
             </ScrollView>
         </SafeAreaView>
 
@@ -38,7 +40,7 @@ export default Dashboard;
 const styles = StyleSheet.create({
     wrapper: {
         // paddingVertical: 60,
-        paddingHorizontal: 20,
+        paddingHorizontal: 15,
         flex: 1, 
         backgroundColor: '#FFFFFF'
     },

@@ -17,7 +17,8 @@ const App = () => {
 
   const [fontsLoaded] = useFonts({
     'satoshi-regular': require('./assets/Fonts/OTF/Satoshi-Regular.otf'),
-    'satoshi-bold': require('./assets/Fonts/OTF/Satoshi-Bold.otf')
+    'satoshi-bold': require('./assets/Fonts/OTF/Satoshi-Bold.otf'),
+    'satoshi-medium': require('./assets/Fonts/OTF/Satoshi-Medium.otf')
   })
 
   const onLayoutRootView = useCallback(async () => {
