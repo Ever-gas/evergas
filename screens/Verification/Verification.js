@@ -3,21 +3,31 @@ import { useState } from 'react'
 import { OtpInput } from "react-native-otp-entry";
 import AuthBtn from '../../components/AuthBtn/AuthBtn'
 import { SIZES } from '../../assets/Constants/SIZES';
+import AuthSuccessPopUp from '../../components/AuthSuccessPopUp/AuthSuccessPopUp';
 
 const Verification = (props) => {
-    const [showPassword, setShowPassword] = useState(false)
 
-    const togglePasswordView = () => {
-        setShowPassword(!showPassword)
-    }
+    // const [otp, setOtp] = useState('');
+
+    // to show success modal
+    const [showModal, setShowModal] = useState(false)
+
 
     const goBack = () => props.navigation.goBack()
 
     const Navigate = (screen) => props.navigation.navigate(screen)
 
+    const move = () => {
+        setShowModal(true)
+        setTimeout(() => {
+            Navigate('ResetPassword')
+        }, 3000)
+    }
+
     return (
 
         <SafeAreaView style={styles.wrapper} >
+            {showModal && <AuthSuccessPopUp mainText={'OTP Sent!'} subText={'OTP was successfully sent'} />}
             {/**<ScrollView>*/}
             <TouchableOpacity onPress={goBack} style={styles.iconBox} >
                 <Image source={require('../../assets/Combined-Shape.png')} />
@@ -31,7 +41,7 @@ const Verification = (props) => {
             <View>
                 <OtpInput numberOfDigits={5} onTextChange={(text) => console.log(text)} />
             </View>
-            <AuthBtn title='Verify OTP' action={() => Navigate('ResetPassword')} />
+            <AuthBtn title='Verify OTP' action={move} />
             <TouchableOpacity><Text style={styles.resendCodeText} >Resend Code</Text></TouchableOpacity>
 
 
@@ -48,11 +58,13 @@ const styles = StyleSheet.create({
         paddingVertical: 60,
         paddingHorizontal: 20,
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        position: 'relative',
+
 
     },
     header: {
-        marginBottom: 40
+        marginBottom: 40,
     },
     heading: {
         fontFamily: 'satoshi-bold',
