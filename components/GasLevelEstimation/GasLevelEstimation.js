@@ -8,7 +8,7 @@ const GasLevelEstimation = () => {
     return (
         <View style={styles.wrapper}>
             <View style={styles.pattern}>
-                <Image source={require('../../assets/pattern.png')} />
+                <Image source={require('../../assets/Images/pattern.png')} />
             </View>
             <Text style={styles.header}>Gas level Estimation</Text>
             <View style={styles.estimate}>
@@ -111,7 +111,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'flex-end',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginTop: 15
     },
     numberOfDays: {
         fontFamily: 'satoshi-bold',
