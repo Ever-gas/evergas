@@ -33,10 +33,7 @@ const App = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
       <View style={styles.container} onLayout={onLayoutRootView} >
-        {/*<SignIn />
-  <SignUp />*/}
-        {/*<ForgotPassword />*/}
-        {/*<ResetPassword />*/}
+
         <NavigationContainer>
           <AuthStack />
         </NavigationContainer>

@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, SafeAreaVie
 import React, { useState } from 'react'
 import AuthBtn from '../../components/AuthBtn/AuthBtn'
 import { SIZES } from '../../assets/Constants/SIZES'
+import AuthSuccessPopUp from '../../components/AuthSuccessPopUp/AuthSuccessPopUp'
 
 const ResetPassword = (props) => {
 
@@ -10,18 +11,29 @@ const ResetPassword = (props) => {
     const [showPassword, setShowPassword] = useState(false)
     const [confirmPassword, setShowConfirmPassword] = useState(false)
 
+    // to show success modal
+    const [showModal, setShowModal] = useState(false)
+
+    // Toggle password Icon viewer
     const togglePasswordView = () => {
         setShowPassword(!showPassword)
     }
-
 
     const toggleConfirmPasswordView = () => {
         setShowConfirmPassword(!confirmPassword)
     }
 
+    // function to show modal
+    const move = () => {
+        setShowModal(true)
+        // setTimeout(() => {
+        //     Navigate('ResetPassword')
+        // }, 3000)
+    }
+
     return (
         <SafeAreaView style={styles.wrapper} >
-
+            {showModal && <AuthSuccessPopUp mainText={'Password Changed!'} subText={'You successfully changed your password'} />}
             <TouchableOpacity onPress={goBack} style={styles.iconBox} >
                 <Image source={require('../../assets/Combined-Shape.png')} />
             </TouchableOpacity>
@@ -63,7 +75,9 @@ const ResetPassword = (props) => {
                 </View>
             </View>
 
-            <AuthBtn title='Set new password' />
+            <AuthBtn title='Set new password' action={move} />
+
+
         </SafeAreaView>
     )
 }
@@ -77,7 +91,8 @@ const styles = StyleSheet.create({
         paddingTop: 60,
         // marginBottom: 10,
         paddingHorizontal: 20,
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
 
     },
     header: {
