@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, ScrollView,  Platform, NativeModules, FlatList } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, ScrollView, Platform, NativeModules, FlatList, } from 'react-native'
 import { useState } from 'react';
 import { SIZES } from '../../assets/Constants/SIZES';
 import { SearchNormal1 } from 'iconsax-react-native';
 import { gasStations } from '../../lib/data';
+import GasStation from '../../components/GasStation/GasStation';
+import Recommended from '../../components/Recommended/Recommended';
 
 const OrderGas = (props) => {
     const { StatusBarManager } = NativeModules;
@@ -11,35 +13,36 @@ const OrderGas = (props) => {
     return (
 
         <SafeAreaView style={[styles.container, {}]} >
-            <ScrollView showsVerticalScrollIndicator={false} decelerationRate='fast' style={{ flex: 1, backgroundColor: '#FFFFFF', paddingTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0, }}>
+            <ScrollView style={{ flex: 1, backgroundColor: '#FFFFFF', paddingTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0, }}>
                 <View style={styles.screenHeader}>
                     <View style={styles.innerView}>
                         <Text style={styles.headerText}>Gas Stations</Text>
-                        <TouchableOpacity style={{padding: 4}}>
-                            <SearchNormal1 size="20" color="#565560" /> 
+                        <TouchableOpacity style={{ padding: 4 }}>
+                            <SearchNormal1 size="20" color="#565560" />
                         </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.flatListWrapper}>
                     <Text style={styles.flatlistText}>Favourite/Closest to you</Text>
-                    <View>
-                        <FlatList
-                            data={gasStations}
-                            keyExtractor={station => station.id}
-                            renderItem={({ station }) => { 
-                                // <EventItem
-                                //     image={item.image}
-                                //     title={item.title}
-                                //     address={item.address}
-                                //     date={item.date}
-                                //     onPress={() => console.log('New Year Explore Event')}
-                                //     attenderImage1={item.attenderImage1}
-                                //     attenderImage2={item.attenderImage2}
-                                // />
-                            }}
-                        /> 
-                    </View>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={gasStations}
+                        keyExtractor={station => station.id}
+                        renderItem={({ item }) => {
+                            return (
+                                <GasStation
+                                    image={item.image}
+                                    name={item.name}
+                                    address={item.address}
+                                    onPress={() => console.log('Details coming soon')}
+                                />
+                            )
+                        }}
+                    />
                 </View>
+                <Recommended />
+
             </ScrollView>
         </SafeAreaView>
 
@@ -53,7 +56,6 @@ const styles = StyleSheet.create({
         // paddingHorizontal: 15,
         flex: 1,
         backgroundColor: '#FFFFFF',
-        // position: 'relative',
     },
     screenHeader: {
         paddingVertical: 16,
