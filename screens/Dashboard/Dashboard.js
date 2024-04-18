@@ -36,7 +36,7 @@ const Dashboard = (props) => {
                 </View>
                 <GasLevelEstimation />
                 <View style={styles.actionsWrapper}>
-                    <TouchableOpacity style={[styles.actions, { backgroundColor: '#022C22', }]}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('OrderGas')} style={[styles.actions, { backgroundColor: '#022C22', }]}>
                         <View style={styles.actionIconWrapper}>
                             <Svg
                                 xmlns="http://www.w3.org/2000/svg"

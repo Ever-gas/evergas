@@ -7,6 +7,7 @@ import ForgotPassword from "../screens/ForgotPassword/ForgotPassword";
 import ResetPassword from "../screens/ResetPassword/ResetPassword";
 import Verification from "../screens/Verification/Verification";
 import Dashboard from "../screens/Dashboard/Dashboard";
+import OrderGas from "../screens/OrderGas/OrderGas";
 
 
 const Stack = createStackNavigator()
@@ -20,6 +21,7 @@ const AuthStack = () => {
             <Stack.Screen name='ResetPassword' component={ResetPassword} options={{ headerShown: false }} />
             <Stack.Screen name='Verification' component={Verification} options={{ headerShown: false }} />
             <Stack.Screen name='Dashboard' component={Dashboard} options={{ headerShown: false }} />
+            <Stack.Screen name='OrderGas' component={OrderGas} options={{ headerShown: false }} />
         </Stack.Navigator>
 
     )

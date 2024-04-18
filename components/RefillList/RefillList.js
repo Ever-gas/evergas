@@ -1,41 +1,10 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import { SIZES } from '../../assets/Constants/SIZES'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { SIZES } from '../../assets/Constants/SIZES';
+import { refillList } from '../../lib/data';
 
 
 const RefillList = () => {
-    const data = [
-        {
-            img: require(`../../assets/Images/station-img-1.jpg`),
-            name: 'Yemsonat Filling Station',
-            date: 'Mar 17, 2024',
-            quantity: 31
-        },
-        {
-            img: require(`../../assets/Images/station-img-5.jpg`),
-            name: 'Zacosem Petrol',
-            date: 'Mar 17, 2024',
-            quantity: 10
-        },
-        {
-            img: require(`../../assets/Images/station-img-2.jpg`),
-            name: 'Nipco Filling Station',
-            date: 'Mar 17, 2024',
-            quantity: 16
-        },
-        {
-            img: require(`../../assets/Images/station-img-3.jpg`),
-            name: 'JP Gas Enterprise',
-            date: 'Mar 17, 2024',
-            quantity: 5
-        },
-        {
-            img: require(`../../assets/Images/station-img-4.jpg`),
-            name: 'Restopark Oil & Gas',
-            date: 'Mar 17, 2024',
-            quantity: 25
-        },
-    ] 
-
+  
     return (
         <View style={styles.listWrapper}>
             <View style={{ marginBottom: 15 }}>
@@ -44,7 +13,7 @@ const RefillList = () => {
             </View>
             <View style={styles.listItems}>
                 {
-                    data.map((el, idx) => { 
+                    refillList.map((el, idx) => { 
                         return (
                             <View key={idx} style={styles.listItem}>
                                 <View style={styles.leftItems}>
