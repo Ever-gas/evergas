@@ -8,7 +8,7 @@ import Recommended from '../../components/Recommended/Recommended';
 
 const OrderGas = (props) => {
     const { StatusBarManager } = NativeModules;
-
+console.log(props)
 
     return (
 
@@ -35,7 +35,7 @@ const OrderGas = (props) => {
                                     image={item.image}
                                     name={item.name}
                                     address={item.address}
-                                    onPress={() => console.log('Details coming soon')}
+                                    onPress={() => props.navigation.navigate('PurchaseGas')}
                                 />
                             )
                         }}

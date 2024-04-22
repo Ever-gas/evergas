@@ -14,7 +14,7 @@ const Recommended = () => {
                 {
                     recommendations.map((el, idx) => {
                         return (
-                            <View style={styles.wrapper}>
+                            <View key={el.id} style={styles.wrapper}>
                                 <View style={styles.topView}>
                                     <View style={styles.imageWrapper}>
                                         <Image source={el.image} style={styles.image} />
