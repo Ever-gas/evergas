@@ -28,7 +28,7 @@ const SignUp = (props) => {
 
 
     return (
-        <SafeAreaView style={styles.wrapper} >
+        <SafeAreaView style={styles.wrapper} showsVerticalScrollIndicator={false}>
             <ScrollView>
                 <TouchableOpacity onPress={goBack} style={styles.iconBox} >
                     <Image source={require('../../assets/Combined-Shape.png')} />
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
         paddingTop: 60,
         // marginBottom: 10,
         paddingHorizontal: 20,
+        backgroundColor: 'white',
         flex: 1
 
     },

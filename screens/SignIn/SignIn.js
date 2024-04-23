@@ -15,14 +15,14 @@ const SignIn = (props) => {
 
     const Navigate = (screen) => props.navigation.navigate(screen)
 
-
+    const goBack = () => props.navigation.goBack()
 
 
     return (
 
         <SafeAreaView style={styles.wrapper} >
             {/**<ScrollView>*/}
-            <TouchableOpacity style={styles.iconBox} >
+            <TouchableOpacity style={styles.iconBox} onPress={goBack}  >
                 <Image source={require('../../assets/Combined-Shape.png')} />
             </TouchableOpacity>
 
@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
     wrapper: {
         paddingVertical: 60,
         paddingHorizontal: 20,
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
 
     },
     header: {
