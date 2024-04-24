@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  Keyboard,
   TouchableWithoutFeedback,
   ScrollView,
   StatusBar,
