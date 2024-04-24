@@ -41,12 +41,13 @@ const App = () => {
   }
 
   return (
-    
+    // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container} onLayout={onLayoutRootView}>
         <NavigationContainer>
           <AuthStack ref={scrollViewRef.current} />
         </NavigationContainer>
       </View>
+    // </TouchableWithoutFeedback>
   );
 };
 
