@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { useCallback, useRef } from "react";
+import { useCallback } from "react";
 
 import Navigator from "./routes/AuthStack";
 import AuthStack from "./routes/AuthStack";
@@ -22,7 +22,6 @@ import { NavigationContainer } from "@react-navigation/native";
 // })
 
 const App = () => {
-  const scrollViewRef = useRef(null);
   const [fontsLoaded] = useFonts({
     "satoshi-regular": require("./assets/Fonts/OTF/Satoshi-Regular.otf"),
     "satoshi-bold": require("./assets/Fonts/OTF/Satoshi-Bold.otf"),
@@ -44,7 +43,7 @@ const App = () => {
     // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container} onLayout={onLayoutRootView}>
         <NavigationContainer>
-          <AuthStack ref={scrollViewRef.current} />
+          <AuthStack />
         </NavigationContainer>
       </View>
     // </TouchableWithoutFeedback>

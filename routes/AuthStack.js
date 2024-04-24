@@ -15,7 +15,7 @@ import Welcome from "../screens/WelcomeScreen/Welcome";
 
 const Stack = createStackNavigator()
 
-const AuthStack = ({ref}) => {
+const AuthStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Welcome' component={Welcome} options={{ headerShown: false }} />
