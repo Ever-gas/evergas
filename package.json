@@ -28,5 +28,5 @@
     "react-native-screens": "~3.29.0",
     "react-native-svg": "^15.1.0",
     "react-native-virtualized-view": "^1.0.0"
-  },
+  }
 }
