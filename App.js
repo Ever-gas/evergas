@@ -1,5 +1,4 @@
 // import { StatusBar } from 'expo-status-bar';
-<<<<<<< HEAD
 import 'react-native-gesture-handler';
 import { StyleSheet, SafeAreaView, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useFonts } from 'expo-font'
@@ -9,25 +8,6 @@ import Navigator from './routes/AuthStack'
 import AuthStack from './routes/AuthStack';
 import MainStack from './routes/MainStack';
 import { NavigationContainer } from '@react-navigation/native';
-=======
-import "react-native-gesture-handler";
-import {
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  View,
-  // TouchableWithoutFeedback,
-  Keyboard,
-  Pressable,
-} from "react-native";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
-
-import Navigator from "./routes/AuthStack";
-import AuthStack from "./routes/AuthStack";
-import { NavigationContainer } from "@react-navigation/native";
->>>>>>> 84a54f79d00edeb36251783c23a12f66e54bbe0f
 
 // const getFonts = () => Font.loadAsync({
 //   'satoshi-regular': require('./assets/Fonts/OTF/Satoshi-Regular.otf')
@@ -55,21 +35,8 @@ const App = () => {
     // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container} onLayout={onLayoutRootView}>
         <NavigationContainer>
-<<<<<<< HEAD
-<<<<<<< HEAD
           <AuthStack /> 
         </NavigationContainer>
-        {/* <NavigationContainer> 
-          <MainStack/>
-        </NavigationContainer> */}
-
-=======
-          <AuthStack ref={scrollViewRef.current} />
-=======
-          <AuthStack />
->>>>>>> 0ca5743668c0025861e2d3ddda98df57919f5792
-        </NavigationContainer>
->>>>>>> 84a54f79d00edeb36251783c23a12f66e54bbe0f
       </View>
     // </TouchableWithoutFeedback>
   );
