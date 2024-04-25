@@ -4,9 +4,10 @@ import { StyleSheet, SafeAreaView, Text, View, TouchableWithoutFeedback, Keyboar
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
-import Navigator from './routes/AuthStack'
-import AuthStack from './routes/AuthStack';
-import MainStack from './routes/MainStack';
+// import Navigator from './routes/AuthStack'
+// import AuthStack from './routes/AuthStack';
+// import MainStack from './routes/MainStack'; 
+import AppNavigation from './routes/AppNavigation';
 import { NavigationContainer } from '@react-navigation/native';
 
 // const getFonts = () => Font.loadAsync({
@@ -35,7 +36,7 @@ const App = () => {
     // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container} onLayout={onLayoutRootView}>
         <NavigationContainer>
-          <AuthStack /> 
+          <AppNavigation /> 
         </NavigationContainer>
       </View>
     // </TouchableWithoutFeedback>

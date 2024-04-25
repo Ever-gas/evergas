@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         color: '#121212'
     },
     listItems: {
-        paddingBottom: 130,
+        paddingBottom: 70,
         flex: 1,
         // gap: 16
     },

@@ -8,7 +8,7 @@ import Recommended from '../../components/Recommended/Recommended';
 
 const OrderGas = (props) => {
     const { StatusBarManager } = NativeModules;
-    console.log(props)
+    // console.log(props)
 
     return (
 

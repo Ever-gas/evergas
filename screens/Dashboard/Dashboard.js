@@ -29,9 +29,9 @@ const Dashboard = (props) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         decelerationRate="fast"
-        onTouchEnd={() => {
-          console.log(props.ref);
-        }}
+        // onTouchEnd={() => {
+        //   console.log(props.ref);
+        // }}
         // onTouchMove={() => props.ref.current?.scrollResponderHandleMoveShouldSetResponders()}
         // onTouchEnd={() => props.ref.current?.scrollResponderHandleEndShouldSetResponders()}
         // nestedScrollEnabled={true}

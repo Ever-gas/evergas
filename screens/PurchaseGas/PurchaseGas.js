@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { SafeAreaView, Image, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
-import { ArrowLeft } from 'iconsax-react-native'; 
+import { TextInput, Image, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { ArrowLeft } from 'iconsax-react-native';
 
 const PurchaseGas = ({ navigation }) => {
+  const [value, onChangeValue] = useState('13,000')
 
   return (
-    <View style={styles.screenView}>
+    <ScrollView style={styles.screenView}>
       <ImageBackground source={require("../../assets/Images/station-bg1.jpeg")} resizeMode="cover" style={styles.image} >
         <View style={styles.nav}>
           <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
@@ -13,12 +14,20 @@ const PurchaseGas = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-      <ScrollView style={styles.container}>
-        {/* <View style={styles.}>
-
-        </View> */}
-      </ScrollView>
-    </View>
+      <View style={styles.container}>
+        <Text style={styles.headerText}>Buy/Refill Gas</Text>
+        <View style={styles.quantityInputWrapper}>
+          <TextInput
+            autoFocus={true}
+            inputMode='numeric'
+            cursorColor= '#D9D9D9'
+            onChangeValue={inputValue => onChangeValue(inputValue)}
+            value={value}
+            style={styles.input}
+          />
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -27,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF'
   },
-  image: { 
+  image: {
     height: 220,
   },
   nav: {
@@ -35,7 +44,7 @@ const styles = StyleSheet.create({
     paddingLeft: 24,
     height: 100,
     width: "auto"
-  }, 
+  },
   goBack: {
     height: 30,
     width: 30,
@@ -47,9 +56,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   container: {
-   paddingVertical: 50,
-   paddingHorizontal: 12
+    paddingVertical: 50,
+    paddingHorizontal: 12
   },
+  headerText: {
+    lineHeight: 24,
+    fontSize: 20,
+    fontFamily: 'satoshi-bold',
+    textAlign: 'center',
+    color: '#192126'
+  },
+  quantityInputWrapper:{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 28
+  },
+  input: {
+    fontFamily: 'satoshi-black',
+    fontSize: 48,
+    lineHeight: 65,
+    width: 165
+  }
+
 
 });
 

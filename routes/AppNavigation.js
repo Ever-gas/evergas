@@ -15,7 +15,7 @@ import Welcome from "../screens/WelcomeScreen/Welcome";
 
 const Stack = createStackNavigator()
 
-const AuthStack = () => {
+const AppNavigation = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Welcome' component={Welcome} options={{ headerShown: false }} />
@@ -59,4 +59,4 @@ const screens = {
 
 
 
-export default AuthStack
+export default AppNavigation
