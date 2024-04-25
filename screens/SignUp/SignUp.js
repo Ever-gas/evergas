@@ -28,8 +28,8 @@ const SignUp = (props) => {
 
 
     return (
-        <SafeAreaView style={styles.wrapper} showsVerticalScrollIndicator={false}>
-            <ScrollView>
+        <SafeAreaView style={styles.wrapper}>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <TouchableOpacity onPress={goBack} style={styles.iconBox} >
                     <Image source={require('../../assets/Combined-Shape.png')} />
                 </TouchableOpacity>

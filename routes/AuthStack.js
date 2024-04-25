@@ -51,8 +51,10 @@ const screens = {
     },
     Verification: {
         screen: Verification
+    },
+    Dashboard : {
+        screen: Dashboard
     }
-
 }
 
 
