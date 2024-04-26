@@ -28,10 +28,20 @@ const PurchaseGas = ({ navigation }) => {
             />
           </View>
           <TouchableOpacity style={{display: 'flex', alignItems: 'center', }}>
-            <Text style={{ fontSize: 10 }}>
+            <Text style={ {}}>
               <ArrangeVertical size="24" color="#8C91A2" variant="Outline" />
             </Text>
           </TouchableOpacity>
+        </View>
+        <View style={styles.gasInfoWrapper}>
+          <View style={styles.priceWrapper}>
+            <Text style={styles.infoTitle}>Price per kg</Text>
+            <Text style={styles.infoAmount}>1kg = 1560</Text>
+          </View>
+          <View style={{paddingLeft: 48}}>
+            <Text style={styles.infoTitle}>Gas Quantity</Text>
+            <Text style={styles.infoAmount}>8.33 kg</Text>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -95,6 +105,36 @@ const styles = StyleSheet.create({
     fontFamily: 'satoshi-black',
     color: '#979797',
     marginRight: 4
+  },
+  gasInfoWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#F8F7F8',
+    borderRadius: 8,
+    paddingVertical: 18,
+    marginBottom: 19
+  },
+  priceWrapper: {
+    borderRightWidth: 1,
+    borderRightColor: '#D9D9D9', 
+    paddingRight: 48
+  },
+  infoTitle: {
+    fontFamily: 'satoshi-regular',
+    lineHeight: 16,
+    fontSize: 12,
+    color: '#6C727F',
+    textAlign: 'center'
+  },
+  infoAmount: {
+    fontFamily: 'satoshi-black',
+    lineHeight: 24,
+    fontSize: 16,
+    color: '#022C22',
+    textAlign: 'center'
   }
 
 
