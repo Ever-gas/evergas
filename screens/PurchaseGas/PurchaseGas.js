@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TextInput, Image, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
-import { ArrowLeft } from 'iconsax-react-native';
+import { ArrowLeft, ArrangeVertical } from 'iconsax-react-native';
 
 const PurchaseGas = ({ navigation }) => {
   const [value, onChangeValue] = useState('13,000')
@@ -17,14 +17,21 @@ const PurchaseGas = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.headerText}>Buy/Refill Gas</Text>
         <View style={styles.quantityInputWrapper}>
-          <TextInput
-            autoFocus={true}
-            inputMode='numeric'
-            cursorColor= '#D9D9D9'
-            onChangeValue={inputValue => onChangeValue(inputValue)}
-            value={value}
-            style={styles.input}
-          />
+          <View style={styles.amountWrapper}>
+            <Text style={styles.unit}>₦</Text>
+            <TextInput
+              inputMode='numeric'
+              cursorColor='#D9D9D9'
+              onChangeValue={inputValue => onChangeValue(inputValue)}
+              value={value}
+              style={styles.input}
+            />
+          </View>
+          <TouchableOpacity style={{display: 'flex', alignItems: 'center', }}>
+            <Text style={{ fontSize: 10 }}>
+              <ArrangeVertical size="24" color="#8C91A2" variant="Outline" />
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
@@ -66,7 +73,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#192126'
   },
-  quantityInputWrapper:{
+  quantityInputWrapper: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -77,7 +84,17 @@ const styles = StyleSheet.create({
     fontFamily: 'satoshi-black',
     fontSize: 48,
     lineHeight: 65,
-    width: 165
+    width: 162
+  },
+  amountWrapper: {
+    display: "flex",
+    flexDirection: 'row',
+  },
+  unit: {
+    lineHeight: 40,
+    fontFamily: 'satoshi-black',
+    color: '#979797',
+    marginRight: 4
   }
 
 
