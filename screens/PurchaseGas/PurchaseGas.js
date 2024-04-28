@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TextInput, Image, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { ArrowLeft, ArrangeVertical } from 'iconsax-react-native';
+import SelectPicker from '../../components/SelectPicker/SelectPicker';
 
 const PurchaseGas = ({ navigation }) => {
   const [value, onChangeValue] = useState('13,000')
@@ -42,6 +43,12 @@ const PurchaseGas = ({ navigation }) => {
             <Text style={styles.infoTitle}>Gas Quantity</Text>
             <Text style={styles.infoAmount}>8.33 kg</Text>
           </View>
+        </View>
+        <View style={{marginBottom: 20}}> 
+          <SelectPicker lableText="Cylinder size" placeholder="Select cylinder size" data={['12kg', '6kg', '3kg']}/>
+        </View>
+        <View style={{marginBottom: 20}}>
+          <SelectPicker lableText="Delivery Option" placeholder="Select delivery option" data={['Pick-up']}/>
         </View>
       </View>
     </ScrollView>
