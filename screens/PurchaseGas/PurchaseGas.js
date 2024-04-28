@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { TextInput, Image, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { TextInput, Switch, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { ArrowLeft, ArrangeVertical } from 'iconsax-react-native';
 import SelectPicker from '../../components/SelectPicker/SelectPicker';
+import Button from '../../components/Button/Button';
 
 const PurchaseGas = ({ navigation }) => {
-  const [value, onChangeValue] = useState('13,000')
+  const [value, setValue] = useState('13,000');
+  const [buyInKG, setBuyInKG] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
     <ScrollView style={styles.screenView}>
@@ -18,38 +22,51 @@ const PurchaseGas = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.headerText}>Buy/Refill Gas</Text>
         <View style={styles.quantityInputWrapper}>
-          <View style={styles.amountWrapper}>
-            <Text style={styles.unit}>₦</Text>
+          <View style={[styles.amountWrapper, styles.borderRight]}>
+            <Text style={styles.unit}>{buyInKG ? 'KG' : '₦'}</Text>
             <TextInput
               inputMode='numeric'
               cursorColor='#D9D9D9'
-              onChangeValue={inputValue => onChangeValue(inputValue)}
-              value={value}
-              style={styles.input}
+              onChangeValue={inputValue => setValue(inputValue)}
+              value={buyInKG ? '10' : value}
+              style={[styles.input, { width: 'auto' }]}
             />
           </View>
-          <TouchableOpacity style={{display: 'flex', alignItems: 'center', }}>
-            <Text style={ {}}>
+          <TouchableOpacity onPress={() => setBuyInKG(prev => !prev)} style={{ display: 'flex', alignItems: 'center', }}>
+            <Text style={{ paddingLeft: 20 }}>
               <ArrangeVertical size="24" color="#8C91A2" variant="Outline" />
             </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.gasInfoWrapper}>
-          <View style={styles.priceWrapper}>
+          <View style={[styles.borderRight, { paddingRight: 48 }]}>
             <Text style={styles.infoTitle}>Price per kg</Text>
             <Text style={styles.infoAmount}>1kg = 1560</Text>
           </View>
-          <View style={{paddingLeft: 48}}>
+          <View style={{ paddingLeft: 48 }}>
             <Text style={styles.infoTitle}>Gas Quantity</Text>
             <Text style={styles.infoAmount}>8.33 kg</Text>
           </View>
         </View>
-        <View style={{marginBottom: 20}}> 
-          <SelectPicker lableText="Cylinder size" placeholder="Select cylinder size" data={['12kg', '6kg', '3kg']}/>
+        <View style={{ marginBottom: 20 }}>
+          <SelectPicker lableText="Cylinder size" placeholder="Select cylinder size" data={['12kg', '6kg', '3kg']} />
         </View>
-        <View style={{marginBottom: 20}}>
-          <SelectPicker lableText="Delivery Option" placeholder="Select delivery option" data={['Pick-up']}/>
+        <View style={{ marginBottom: 20 }}>
+          <SelectPicker lableText="Delivery Option" placeholder="Select delivery option" data={['Pick-up']} />
         </View>
+        <View style={styles.switchWrapper}>
+          <Text style={styles.switchText}>Recurring purchase?</Text>
+          <TouchableOpacity>
+            <Switch
+              trackColor={{ false: '#E5E6EB', true: '#E5E6EB' }}
+              thumbColor={isEnabled ? '#FFFFFF' : '#E5E6EB'}
+              ios_backgroundColor="#E5E6EB"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </TouchableOpacity>
+        </View>
+          <Button title='Confirm Purchase' action={() => console.log('clicked')}/>
       </View>
     </ScrollView>
   );
@@ -101,11 +118,12 @@ const styles = StyleSheet.create({
     fontFamily: 'satoshi-black',
     fontSize: 48,
     lineHeight: 65,
-    width: 162
+    // width: 100
   },
   amountWrapper: {
     display: "flex",
     flexDirection: 'row',
+    paddingRight: 14
   },
   unit: {
     lineHeight: 40,
@@ -124,10 +142,10 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     marginBottom: 19
   },
-  priceWrapper: {
+  borderRight: {
     borderRightWidth: 1,
-    borderRightColor: '#D9D9D9', 
-    paddingRight: 48
+    borderRightColor: '#D9D9D9',
+    // paddingRight: 48
   },
   infoTitle: {
     fontFamily: 'satoshi-regular',
@@ -142,6 +160,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#022C22',
     textAlign: 'center'
+  },
+  switchWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginTop: 5,
+    marginBottom: 50
+  },
+  switchText: {
+    fontFamily: 'satoshi-medium',
+    lineHeight: 24,
+    fontSize: 16,
+    color: '#192126',
   }
 
 
