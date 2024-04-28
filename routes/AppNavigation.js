@@ -10,6 +10,7 @@ import Verification from "../screens/Verification/Verification";
 import Dashboard from "../screens/Dashboard/Dashboard";
 import OrderGas from "../screens/OrderGas/OrderGas";
 import PurchaseGas from "../screens/PurchaseGas/PurchaseGas";
+import ConfirmPurchase from "../screens/ConfirmPurchase/ConfirmPurchase";
 
 import Welcome from "../screens/WelcomeScreen/Welcome";
 
@@ -27,6 +28,7 @@ const AppNavigation = () => {
             <Stack.Screen name='Dashboard' component={Dashboard} options={{ headerShown: false }} />
             <Stack.Screen name='OrderGas' component={OrderGas} options={{ headerShown: false }} />
             <Stack.Screen name='PurchaseGas' component={PurchaseGas} options={{ headerShown: false }} />
+            <Stack.Screen name='ConfirmPurchase' component={ConfirmPurchase} options={{ headerShown: false }} />
         </Stack.Navigator>
 
     )

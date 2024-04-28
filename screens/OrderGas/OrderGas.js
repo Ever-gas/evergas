@@ -13,7 +13,7 @@ const OrderGas = (props) => {
     return (
 
         <SafeAreaView style={[styles.container, {}]} >
-            <ScrollView style={{ flex: 1, backgroundColor: '#FFFFFF', paddingTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0, }}>
+            <ScrollView style={{ flex: 1, paddingTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0, }}>
                 <View style={styles.screenHeader}>
                     <View style={styles.innerView}>
                         <Text style={styles.headerText}>Gas Stations</Text>

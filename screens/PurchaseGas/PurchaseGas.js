@@ -3,12 +3,13 @@ import { TextInput, Switch, ScrollView, TouchableOpacity, View, Text, ImageBackg
 import { ArrowLeft, ArrangeVertical } from 'iconsax-react-native';
 import SelectPicker from '../../components/SelectPicker/SelectPicker';
 import Button from '../../components/Button/Button';
+import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 
 const PurchaseGas = ({ navigation }) => {
   const [value, setValue] = useState('13,000');
   const [buyInKG, setBuyInKG] = useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const handleToggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
     <ScrollView style={styles.screenView}>
@@ -56,17 +57,9 @@ const PurchaseGas = ({ navigation }) => {
         </View>
         <View style={styles.switchWrapper}>
           <Text style={styles.switchText}>Recurring purchase?</Text>
-          <TouchableOpacity>
-            <Switch
-              trackColor={{ false: '#E5E6EB', true: '#E5E6EB' }}
-              thumbColor={isEnabled ? '#FFFFFF' : '#E5E6EB'}
-              ios_backgroundColor="#E5E6EB"
-              onValueChange={toggleSwitch}
-              value={isEnabled}
-            />
-          </TouchableOpacity>
+          <ToggleSwitch isEnabled={isEnabled} handleToggleSwitch={handleToggleSwitch} />
         </View>
-          <Button title='Confirm Purchase' action={() => console.log('clicked')}/>
+        <Button title='Confirm Purchase' action={() => navigation.navigate('ConfirmPurchase')} />
       </View>
     </ScrollView>
   );
