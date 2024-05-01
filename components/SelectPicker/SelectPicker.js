@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import { ArrowDown2, ArrowUp2 } from 'iconsax-react-native';
 
-const SelectPicker = ({lableText, placeholder, data}) => {
+const SelectPicker = ({ lableText, placeholder, data }) => {
 
     return (
         <View style={styles.container}>
@@ -13,16 +13,18 @@ const SelectPicker = ({lableText, placeholder, data}) => {
                     console.log(selectedItem);
                     // Handle the selected item
                 }}
-                renderButton={(selectedItem, isOpened) => (
-                    <View style={styles.dropdownButtonStyle}>
-                        <Text style={styles.dropdownButtonTxtStyle}>
-                            {(selectedItem && selectedItem) || `${placeholder}`}
-                        </Text>
-                        <Text style={styles.dropdownButtonArrowStyle}>
-                            {isOpened ? <ArrowUp2 color='#9EA3AE' size="16" /> : <ArrowDown2 color='#9EA3AE' size="16"/>}
-                        </Text>
-                    </View>
-                )}
+                renderButton={(selectedItem, isOpened) => { 
+                    return (
+                        <View style={styles.dropdownButtonStyle}>
+                            <Text style={styles.dropdownButtonTxtStyle}>
+                                {(selectedItem && selectedItem) || `${placeholder}`}
+                            </Text>
+                            <Text style={styles.dropdownButtonArrowStyle}>
+                                {isOpened ? <ArrowUp2 color='#9EA3AE' size="16" /> : <ArrowDown2 color='#9EA3AE' size="16" />}
+                            </Text>
+                        </View>
+                    )
+                }}
                 renderItem={(item, index, isSelected) => (
                     <View
                         style={{
@@ -42,7 +44,7 @@ const SelectPicker = ({lableText, placeholder, data}) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
+        flex: 1,
     },
     label: {
         lineHeight: 20,

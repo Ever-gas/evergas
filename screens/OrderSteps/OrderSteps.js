@@ -34,6 +34,18 @@ const OrderSteps = ({ navigation }) => {
             <View style={[styles.step, {marginRight: 0}]}></View>
         </View>
       </View>
+      <View style={{flexDirection:"row",marginTop:23,marginBottom:350 }}>
+        <View style={{height:32,width:32,}}>
+        <Image source={require("../../assets/Images/station-img-5.jpg")}style={{borderRadius:100,width:"100%",height:"100%"}}/>
+        </View>
+        <View style={{left:10}}>
+          <Text style={{fontFamily:"satoshi-black",fontSize:14,color:"#192435",lineHeight:19}}>Zacosem Petrol station</Text>
+          <Text style={{ fontFamily:"satoshi-medium",fontSize:12,color:"#9EA3AE",lineHeight:16}}>Gas Station has received your orders</Text>
+        </View>
+      </View>
+      
+      
+      <Button title='Purchase Gas' action={() => console.log('evelyn has a big head')} />
     </SafeAreaView>
   );
 };

@@ -41,7 +41,7 @@ const OrderGas = (props) => {
                         }}
                     />
                 </View>
-                <Recommended />
+                <Recommended onPress={() => props.navigation.navigate('PurchaseGas')}/>
 
             </ScrollView>
         </SafeAreaView>

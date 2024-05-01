@@ -5,8 +5,7 @@ import Svg, { Path } from "react-native-svg"
 import { recommendations } from '../../lib/data';
 
 
-const Recommended = () => {
-
+const Recommended = ({onPress}) => { 
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Recommended</Text>
@@ -55,7 +54,7 @@ const Recommended = () => {
                                             <Text style={styles.price}>1kg = N{el.pricePerKG}</Text>
                                         </View>
                                     </View>
-                                     <TouchableOpacity style={styles.button} onPress={() => console.log('Coming Soon!!!')}>
+                                     <TouchableOpacity style={styles.button} onPress={() => onPress()}>
                                         <Text style={styles.buttonText}>View</Text>
                                      </TouchableOpacity>
                                 </View>
