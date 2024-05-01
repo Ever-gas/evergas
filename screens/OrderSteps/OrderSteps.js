@@ -45,7 +45,7 @@ const OrderSteps = ({ navigation }) => {
       </View>
       
       
-      <Button title='Purchase Gas' action={() => console.log('evelyn has a big head')} />
+      <Button title='Purchase Gas' action={() => console.log('coming soon')} />
     </SafeAreaView>
   );
 };

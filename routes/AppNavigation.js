@@ -14,6 +14,7 @@ import ConfirmPurchase from "../screens/ConfirmPurchase/ConfirmPurchase";
 import OrderSteps from "../screens/OrderSteps/OrderSteps";
 
 import Welcome from "../screens/WelcomeScreen/Welcome";
+import SearchStation from "../screens/SearchStation/SearchStation";
 
 const Stack = createStackNavigator()
 
@@ -31,6 +32,8 @@ const AppNavigation = () => {
             <Stack.Screen name='PurchaseGas' component={PurchaseGas} options={{ headerShown: false }} />
             <Stack.Screen name='ConfirmPurchase' component={ConfirmPurchase} options={{ headerShown: false }} />
             <Stack.Screen name='OrderSteps' component={OrderSteps} options={{ headerShown: false }} />
+            <Stack.Screen name='SearchStation' component={SearchStation} options={{ headerShown: false }} />
+            
         </Stack.Navigator>
 
     )

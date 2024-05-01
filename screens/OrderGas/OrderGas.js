@@ -5,9 +5,11 @@ import { SearchNormal1 } from 'iconsax-react-native';
 import { gasStations } from '../../lib/data';
 import GasStation from '../../components/GasStation/GasStation';
 import Recommended from '../../components/Recommended/Recommended';
+import SearchStation from '../SearchStation/SearchStation';
 
 const OrderGas = (props) => {
     const { StatusBarManager } = NativeModules;
+    const {navigation} = props;
     // console.log(props)
 
     return (
@@ -17,7 +19,7 @@ const OrderGas = (props) => {
                 <View style={styles.screenHeader}>
                     <View style={styles.innerView}>
                         <Text style={styles.headerText}>Gas Stations</Text>
-                        <TouchableOpacity style={{ padding: 4 }}>
+                        <TouchableOpacity onPress={()=>navigation.navigate('SearchStation')} style={{ padding: 4 }}>
                             <SearchNormal1 size="20" color="#565560" />
                         </TouchableOpacity>
                     </View>
@@ -35,13 +37,13 @@ const OrderGas = (props) => {
                                     image={item.image}
                                     name={item.name}
                                     address={item.address}
-                                    onPress={() => props.navigation.navigate('PurchaseGas')}
+                                    onPress={() => navigation.navigate('PurchaseGas')}
                                 />
                             )
                         }}
                     />
                 </View>
-                <Recommended onPress={() => props.navigation.navigate('PurchaseGas')}/>
+                <Recommended onPress={() => navigation.navigate('PurchaseGas')}/>
 
             </ScrollView>
         </SafeAreaView>
