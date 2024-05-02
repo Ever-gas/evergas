@@ -53,9 +53,7 @@ const styles = StyleSheet.create({
         color: '#19212680',
         marginBottom: 8
     },
-    dropdownButtonStyle: {
-        // height: 56,
-        display: 'flex',
+    dropdownButtonStyle: { 
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -74,8 +72,7 @@ const styles = StyleSheet.create({
         // width: 24,
         // height: 24,
         // borderWidth: 1.5,
-        // borderColor: '#9EA3AE',
-        // display: 'flex', 
+        // borderColor: '#9EA3AE', 
         // justifyContent: 'center',
         // alignItems: 'center',
     },

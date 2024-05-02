@@ -1,17 +1,16 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { SIZES } from '../../assets/Constants/SIZES';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'; 
 import { Calendar } from 'iconsax-react-native';
 import Svg, { Path } from "react-native-svg"
-import { recommendations } from '../../lib/data';
+import { cardData } from '../../lib/data';
 
 
-const Recommended = ({onPress}) => { 
+const StationCards = ({ title, onPress }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Recommended</Text>
+            <Text style={styles.header}>{title}</Text>
             <View style={{ flex: 1 }}>
                 {
-                    recommendations.map((el, idx) => {
+                    cardData.map((el, idx) => {
                         return (
                             <View key={el.id} style={styles.wrapper}>
                                 <View style={styles.topView}>
@@ -25,16 +24,16 @@ const Recommended = ({onPress}) => {
                                 </View>
                                 <View style={styles.bottomView}>
                                     <View>
-                                        <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row', marginBottom: 8 }}>
+                                        <View style={{ alignItems: 'center', flexDirection: 'row', marginBottom: 8 }}>
                                             <Calendar size="16" color="#9EA3AE" />
                                             <Text style={styles.closingTime}>Closes {el.closingTime}</Text>
                                         </View>
-                                        <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row', marginBottom: 8 }}>
+                                        <View style={{ alignItems: 'center', flexDirection: 'row', marginBottom: 8 }}>
                                             <Svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width={16}
                                                 height={16}
-                                                fill="none" 
+                                                fill="none"
                                             >
                                                 <Path
                                                     stroke="#9EA3AE"
@@ -54,9 +53,9 @@ const Recommended = ({onPress}) => {
                                             <Text style={styles.price}>1kg = N{el.pricePerKG}</Text>
                                         </View>
                                     </View>
-                                     <TouchableOpacity style={styles.button} onPress={() => onPress()}>
+                                    <TouchableOpacity style={styles.button} onPress={() => onPress()}>
                                         <Text style={styles.buttonText}>View</Text>
-                                     </TouchableOpacity>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         )
@@ -67,14 +66,12 @@ const Recommended = ({onPress}) => {
     )
 }
 
-export default Recommended;
+export default StationCards;
 
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 42,
-        flex: 1,
-        paddingHorizontal: 12,
+    container: { 
+        flex: 1, 
         paddingBottom: 51
     },
     header: {
@@ -92,7 +89,6 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     topView: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomWidth: 1,
@@ -111,8 +107,7 @@ const styles = StyleSheet.create({
         borderRadius: 100
     },
     textWrapper: {
-        width: 220,
-        display: 'flex'
+        width: 220, 
     },
     name: {
         fontFamily: 'satoshi-bold',
@@ -129,7 +124,6 @@ const styles = StyleSheet.create({
     },
     bottomView: {
         paddingTop: 17,
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'space-between'

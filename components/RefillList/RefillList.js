@@ -59,8 +59,7 @@ const styles = StyleSheet.create({
         flex: 1,
         // gap: 16
     },
-    listItem: {
-        display: 'flex',
+    listItem: { 
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between', 
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
         borderColor: '#F2F5EB',
         paddingVertical: 16
     },
-    leftItems: {display: 'flex', flexDirection: 'row', alignItems: 'center'},
+    leftItems: {flexDirection: 'row', alignItems: 'center'},
     imageWrapper: {
         height: 40,
         width: 40,

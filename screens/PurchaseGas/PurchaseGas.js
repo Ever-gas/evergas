@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextInput, Switch, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { TextInput, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { ArrowLeft, ArrangeVertical } from 'iconsax-react-native';
 import SelectPicker from '../../components/SelectPicker/SelectPicker';
 import Button from '../../components/Button/Button';
@@ -12,7 +12,7 @@ const PurchaseGas = ({ navigation }) => {
   const handleToggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
-    <ScrollView style={styles.screenView}>
+    <ScrollView decelerationRate="fast" showsVerticalScrollIndicator={false}  style={styles.screenView}>
       <ImageBackground source={require("../../assets/Images/station-bg1.jpeg")} resizeMode="cover" style={styles.image} >
         <View style={styles.nav}>
           <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
@@ -33,7 +33,7 @@ const PurchaseGas = ({ navigation }) => {
               style={[styles.input, { width: 'auto' }]}
             />
           </View>
-          <TouchableOpacity onPress={() => setBuyInKG(prev => !prev)} style={{ display: 'flex', alignItems: 'center', }}>
+          <TouchableOpacity onPress={() => setBuyInKG(prev => !prev)} style={{ alignItems: 'center', }}>
             <Text style={{ paddingLeft: 20 }}>
               <ArrangeVertical size="24" color="#8C91A2" variant="Outline" />
             </Text>
@@ -84,8 +84,7 @@ const styles = StyleSheet.create({
     width: 30,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#FFFFFF',
-    display: 'flex',
+    borderColor: '#FFFFFF', 
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -100,8 +99,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#192126'
   },
-  quantityInputWrapper: {
-    display: 'flex',
+  quantityInputWrapper: { 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -124,8 +122,7 @@ const styles = StyleSheet.create({
     color: '#979797',
     marginRight: 4
   },
-  gasInfoWrapper: {
-    display: 'flex',
+  gasInfoWrapper: { 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -154,8 +151,7 @@ const styles = StyleSheet.create({
     color: '#022C22',
     textAlign: 'center'
   },
-  switchWrapper: {
-    display: 'flex',
+  switchWrapper: { 
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',

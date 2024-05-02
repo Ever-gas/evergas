@@ -1,11 +1,10 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, ScrollView, Platform, NativeModules, FlatList, } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView, Platform, NativeModules, FlatList } from 'react-native'
 import { useState } from 'react';
 import { SIZES } from '../../assets/Constants/SIZES';
 import { SearchNormal1 } from 'iconsax-react-native';
 import { gasStations } from '../../lib/data';
 import GasStation from '../../components/GasStation/GasStation';
-import Recommended from '../../components/Recommended/Recommended';
-import SearchStation from '../SearchStation/SearchStation';
+import StationCards from '../../components/StationCards/StationCards'; 
 
 const OrderGas = (props) => {
     const { StatusBarManager } = NativeModules;
@@ -15,7 +14,7 @@ const OrderGas = (props) => {
     return (
 
         <SafeAreaView style={[styles.container, {}]} >
-            <ScrollView style={{ flex: 1, paddingTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0, }}>
+            <ScrollView  decelerationRate="fast" showsVerticalScrollIndicator={false}  style={{ flex: 1, paddingTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0, }}>
                 <View style={styles.screenHeader}>
                     <View style={styles.innerView}>
                         <Text style={styles.headerText}>Gas Stations</Text>
@@ -43,7 +42,7 @@ const OrderGas = (props) => {
                         }}
                     />
                 </View>
-                <Recommended onPress={() => navigation.navigate('PurchaseGas')}/>
+                <StationCards title='Recommended' onPress={() => navigation.navigate('PurchaseGas')}/>
 
             </ScrollView>
         </SafeAreaView>
@@ -55,13 +54,13 @@ export default OrderGas;
 
 const styles = StyleSheet.create({
     container: {
-        // paddingHorizontal: 15,
+        paddingHorizontal: 12,
         flex: 1,
         backgroundColor: '#FFFFFF',
     },
     screenHeader: {
         paddingVertical: 16,
-        paddingHorizontal: 14,
+        // paddingHorizontal: 14,
         borderBottomWidth: 1,
         borderBottomColor: "#F0F0F0",
         position: 'fixed',
@@ -70,8 +69,7 @@ const styles = StyleSheet.create({
         right: 0,
         zIndex: 100,
     },
-    innerView: {
-        display: 'flex',
+    innerView: { 
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
@@ -84,7 +82,8 @@ const styles = StyleSheet.create({
     },
     flatListWrapper: {
         marginTop: 16,
-        padding: 12
+        paddingVertical: 12,
+        marginBottom: 42
     },
     flatlistText: {
         fontFamily: 'satoshi-bold',

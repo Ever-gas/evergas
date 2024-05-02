@@ -28,13 +28,7 @@ const Dashboard = (props) => {
                 /> */}
       <ScrollView
         showsVerticalScrollIndicator={false}
-        decelerationRate="fast"
-        // onTouchEnd={() => {
-        //   console.log(props.ref);
-        // }}
-        // onTouchMove={() => props.ref.current?.scrollResponderHandleMoveShouldSetResponders()}
-        // onTouchEnd={() => props.ref.current?.scrollResponderHandleEndShouldSetResponders()}
-        // nestedScrollEnabled={true}
+        decelerationRate="fast" 
         style={{
           flex: 1,
           backgroundColor: "#FFFFFF",
@@ -119,7 +113,7 @@ export default Dashboard;
 const styles = StyleSheet.create({
   wrapper: {
     // paddingVertical: 60,
-    paddingHorizontal: 15,
+    paddingHorizontal: 12,
     flex: 1,
     backgroundColor: "#FFFFFF",
   },

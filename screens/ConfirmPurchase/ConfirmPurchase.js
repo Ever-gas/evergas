@@ -10,7 +10,7 @@ const ConfirmPurchase = ({ navigation }) => {
 
   return (
     <SafeAreaView style={[styles.container]} >
-      <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+      <ScrollView decelerationRate="fast" showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
             <ArrowLeft size="19" color="#2B2A30" />
@@ -55,7 +55,7 @@ const ConfirmPurchase = ({ navigation }) => {
             <View>
               <Text style={styles.fee}>Delivery Fee</Text>
               <Text style={styles.chargePurpose}><Text style={styles.spanText}>N500</Text> is charged for delivery for round trip</Text>
-              <View style={{ width: '', display: 'flex', alignItems: 'flex-center', justifyContent: 'space-between', flexDirection: 'row', marginTop: 21, paddingBottom: 10 }}>
+              <View style={{ width: '', alignItems: 'flex-center', justifyContent: 'space-between', flexDirection: 'row', marginTop: 21, paddingBottom: 10 }}>
                 <View>
                   <Text style={styles.fee}>Service Fee</Text>
                   <Text style={styles.chargePurpose}><Text style={styles.spanText}>N75</Text> is charged for each delivery</Text>
@@ -102,10 +102,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     paddingTop: 50,
-    paddingHorizontal: 16
+    paddingHorizontal: 12
   },
   header: {
-    display: 'flex',
+  
     alignItems: 'center',
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#C0C1CE80',
-    display: 'flex',
+  
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     letterSpacing: -0.2
   },
   infoWrapper: {
-    display: 'flex',
+  
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     fontFamily: 'satoshi-black'
   },
   stationInfo: {
-    display: 'flex',
+  
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 17,
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     color: '#9EA3AE',
   },
   purchaseWrapper: {
-    display: 'flex',
+  
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F5EB',
     borderRadius: 8,
     padding: 15,
-    display: 'flex',
+  
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flexDirection: 'row',
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     backgroundColor: '#022C22',
-    display: 'flex',
+  
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 100
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   totalAmount: {
-    display: 'flex',
+  
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     textAlign: 'right'
   },
   switchWrapper: {
-    display: 'flex',
+  
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5
   },
   lableWrapper: {
-    display: 'flex',
+  
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'

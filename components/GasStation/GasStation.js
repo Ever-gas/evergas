@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
     },
     textWrapper: {
-        height: '100%',
-        display: 'flex',
+        height: '100%', 
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
         paddingHorizontal: 15,

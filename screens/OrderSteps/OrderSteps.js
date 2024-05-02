@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SafeAreaView, ScrollView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
+import { SafeAreaView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import Button from '../../components/Button/Button';
 import { ArrowLeft } from 'iconsax-react-native';
 
@@ -26,26 +26,34 @@ const OrderSteps = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.steps}>
-            <View style={[styles.step, styles.completed]}></View>
-            <View style={styles.step}></View>
-            <View style={styles.step}></View>
-            <View style={styles.step}></View>
-            <View style={styles.step}></View>
-            <View style={[styles.step, {marginRight: 0}]}></View>
+          <View style={[styles.step, styles.completed]}></View>
+          <View style={styles.step}></View>
+          <View style={styles.step}></View>
+          <View style={styles.step}></View>
+          <View style={styles.step}></View>
+          <View style={[styles.step, { marginRight: 0 }]}></View>
         </View>
       </View>
-      <View style={{flexDirection:"row",marginTop:23,marginBottom:350 }}>
-        <View style={{height:32,width:32,}}>
-        <Image source={require("../../assets/Images/station-img-5.jpg")}style={{borderRadius:100,width:"100%",height:"100%"}}/>
+      {/* <View style={{ flexDirection: "row", marginTop: 23, }}>
+        <View style={{ height: 32, width: 32, }}>
+          <Image source={require("../../assets/Images/station-img-5.jpg")} style={{ borderRadius: 100, width: "100%", height: "100%" }} />
         </View>
-        <View style={{left:10}}>
-          <Text style={{fontFamily:"satoshi-black",fontSize:14,color:"#192435",lineHeight:19}}>Zacosem Petrol station</Text>
-          <Text style={{ fontFamily:"satoshi-medium",fontSize:12,color:"#9EA3AE",lineHeight:16}}>Gas Station has received your orders</Text>
+
+      </View> */}
+
+      <View style={styles.stationInfo}>
+        <View style={styles.imageWrapper}>
+          <Image source={require('../../assets/Images/station-bg3.jpeg')} style={styles.image} />
+        </View>
+        <View style={{ marginLeft: 10 }}>
+          <Text style={{ fontFamily: "satoshi-black", fontSize: 14, color: "#192435", lineHeight: 19 }}>Zacosem Petrol station</Text>
+          <Text style={{ fontFamily: "satoshi-medium", fontSize: 12, color: "#9EA3AE", lineHeight: 16 }}>Gas Station has received your orders</Text>
         </View>
       </View>
-      
-      
-      <Button title='Purchase Gas' action={() => console.log('coming soon')} />
+
+      <View style={styles.buttonWrapper}>
+        <Button title='Purchase Gas' action={() => console.log('coming soon')} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -55,10 +63,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     paddingTop: 50,
-    paddingHorizontal: 16
+    paddingHorizontal: 12
   },
   header: {
-    display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -71,7 +78,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#C0C1CE80',
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -84,7 +90,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.2
   },
   infoWrapper: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
     fontFamily: 'satoshi-regular',
     color: '#6C727F',
     fontSize: 12,
-    lineHeight: 16, 
+    lineHeight: 16,
   },
   infoValue: {
     fontFamily: 'satoshi-black',
@@ -103,7 +108,6 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   steps: {
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -119,6 +123,28 @@ const styles = StyleSheet.create({
   },
   completed: {
     backgroundColor: '#38C076'
+  },
+  stationInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 23,
+    maxWidth: 280
+  },
+  imageWrapper: {
+    height: 32,
+    width: 32,
+    borderRadius: 100,
+    marginEnd: 10
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 100
+  },
+  buttonWrapper: {
+    height: 400,
+    flexDirection: 'row',
+    alignItems: 'flex-end'
   }
 })
 
