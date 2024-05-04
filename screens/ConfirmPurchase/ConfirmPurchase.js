@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { SafeAreaView, ScrollView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import { ArrowLeft, Information, InfoCircle, Card } from 'iconsax-react-native';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
+import BottomSheet from '../../components/BottomSheet/BottomSheet';
 import Button from '../../components/Button/Button';
 
 const ConfirmPurchase = ({ navigation }) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const handleToggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const sheetRef = useRef();
 
   return (
     <SafeAreaView style={[styles.container]} >
@@ -60,7 +62,7 @@ const ConfirmPurchase = ({ navigation }) => {
                   <Text style={styles.fee}>Service Fee</Text>
                   <Text style={styles.chargePurpose}><Text style={styles.spanText}>N75</Text> is charged for each delivery</Text>
                 </View>
-                <TouchableOpacity style={{ marginTop: 18, paddingLeft: 85 }}>
+                <TouchableOpacity  onPress={() => sheetRef.current.open()} style={{ marginTop: 18, paddingLeft: 85 }}>
                   <Text><InfoCircle size="15" color="#FFAD31" /></Text>
                 </TouchableOpacity>
               </View>
@@ -93,6 +95,17 @@ const ConfirmPurchase = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
+      <BottomSheet
+        shareRefSheet={sheetRef}
+        height={420}
+        dragDown={true}
+        pressMask={true}
+        sheetcontent={
+          <View style={{}}> 
+            <Text>Coming soon</Text>
+          </View>
+        }
+      />
     </SafeAreaView>
   );
 };
