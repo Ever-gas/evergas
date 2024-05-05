@@ -3,7 +3,8 @@ import { SafeAreaView, ScrollView, TouchableOpacity, View, Text, Image, StyleShe
 import { ArrowLeft, Information, InfoCircle, Card } from 'iconsax-react-native';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 import BottomSheet from '../../components/BottomSheet/BottomSheet';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button/Button';  
+import AboutServiceCharge from '../../components/AboutServiceCharge/AboutServiceCharge';
 
 const ConfirmPurchase = ({ navigation }) => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -62,7 +63,7 @@ const ConfirmPurchase = ({ navigation }) => {
                   <Text style={styles.fee}>Service Fee</Text>
                   <Text style={styles.chargePurpose}><Text style={styles.spanText}>N75</Text> is charged for each delivery</Text>
                 </View>
-                <TouchableOpacity  onPress={() => sheetRef.current.open()} style={{ marginTop: 18, paddingLeft: 85 }}>
+                <TouchableOpacity onPress={() => sheetRef.current.open()} style={{ marginTop: 18, paddingLeft: 85 }}>
                   <Text><InfoCircle size="15" color="#FFAD31" /></Text>
                 </TouchableOpacity>
               </View>
@@ -96,14 +97,13 @@ const ConfirmPurchase = ({ navigation }) => {
         </View>
       </ScrollView>
       <BottomSheet
-        shareRefSheet={sheetRef}
+        sheetRef={sheetRef}
         height={420}
         dragDown={true}
         pressMask={true}
+        title="What is service charge?"
         sheetcontent={
-          <View style={{}}> 
-            <Text>Coming soon</Text>
-          </View>
+         <AboutServiceCharge />
         }
       />
     </SafeAreaView>
@@ -170,7 +170,6 @@ const styles = StyleSheet.create({
     fontFamily: 'satoshi-black'
   },
   stationInfo: {
-  
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 17,
@@ -194,7 +193,6 @@ const styles = StyleSheet.create({
     color: '#9EA3AE',
   },
   purchaseWrapper: {
-  
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -226,7 +224,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F5EB',
     borderRadius: 8,
     padding: 15,
-  
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flexDirection: 'row',
@@ -237,7 +234,6 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     backgroundColor: '#022C22',
-  
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 100
@@ -262,7 +258,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   totalAmount: {
-  
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -298,7 +293,6 @@ const styles = StyleSheet.create({
     textAlign: 'right'
   },
   switchWrapper: {
-  
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -311,7 +305,6 @@ const styles = StyleSheet.create({
     paddingLeft: 5
   },
   lableWrapper: {
-  
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'

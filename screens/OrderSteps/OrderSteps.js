@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { SafeAreaView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
+import BottomSheet from '../../components/BottomSheet/BottomSheet';
+import PurchaseSummary from '../../components/PurchaseSummary/PurchaseSummary';
 import Button from '../../components/Button/Button';
 import { ArrowLeft } from 'iconsax-react-native';
 
 const OrderSteps = ({ navigation }) => {
+  const sheetRef = useRef();
 
   return (
     <SafeAreaView style={[styles.container]} >
@@ -52,8 +55,19 @@ const OrderSteps = ({ navigation }) => {
       </View>
 
       <View style={styles.buttonWrapper}>
-        <Button title='Purchase Gas' action={() => console.log('coming soon')} />
+        <Button title='Purchase Gas' action={() => sheetRef.current.open()} />
       </View>
+
+      <BottomSheet
+        sheetRef={sheetRef}
+        height={480}
+        dragDown={true}
+        pressMask={true}
+        title="Gas Purchase Summary"
+        sheetcontent={
+         <PurchaseSummary navigation={navigation} />
+        }
+      />
     </SafeAreaView>
   );
 };

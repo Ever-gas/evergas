@@ -1,62 +1,70 @@
 import { useRef, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import RBSheet from "react-native-raw-bottom-sheet"; 
+import RBSheet from "react-native-raw-bottom-sheet";
+import { CloseCircle } from "iconsax-react-native";
 
 
-const BottomSheet = ({shareRefSheet,height,dragDown,pressMask,sheetcontent }) => {
+const BottomSheet = ({ title, sheetRef, height, dragDown, pressMask, sheetcontent }) => {
 
-    return (
-      <RBSheet
-        ref={shareRefSheet}
-        closeOnDragDown={dragDown}
-        closeOnPressMask={pressMask}
-        height={height}
-        draggable={true}
-        customStyles={{
-          wrapper: {
-            backgroundColor: "rgba(0, 0, 9, 0.7)",
-          },
-          draggableIcon: {
-            backgroundColor: "#E5E7EB",
-          },
-          container: {
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-          },
-        }}
-        customModalProps={{
-            animationType: 'slide',
-            statusBarTranslucent: true,
-          }}
-          customAvoidingViewProps={{
-            enabled: false,
-          }}
-      >
-      {sheetcontent}
-      </RBSheet>
-    );
+  return (
+    <RBSheet
+      ref={sheetRef}
+      closeOnDragDown={dragDown} 
+      closeOnPressMask={pressMask}
+      height={height} 
+      openDuration={700}
+      closeDuration={700}
+      customStyles={{
+        wrapper: {
+          backgroundColor: "rgba(0, 0, 9, 0.7)",
+        },
+        draggableIcon: {
+          backgroundColor: "#E5E7EB",
+        },
+        container: {
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+        },
+      }}
+      customModalProps={{
+        animationType: 'slide',
+        statusBarTranslucent: true,
+      }}
+      customAvoidingViewProps={{
+        enabled: false,
+      }}
+    >
+      {
+        <View style={styles.sheetContentWrapper}>
+          <View style={styles.sheetHead}>
+            <Text style={styles.title}>{title}</Text>
+            <TouchableOpacity onPress={() => sheetRef.current.close()} >
+              <Text><CloseCircle size="40" color="#9EA3AE" variant="Bold"/></Text>
+            </TouchableOpacity>
+          </View>
+          <View>{sheetcontent}</View>
+        </View>
+      }
+    </RBSheet>
+  );
 };
 const styles = StyleSheet.create({
-  iconContainer: {
-    height: 30,
-    width: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    borderColor: "#EFEFEF",
-    borderWidth: 0.72,
-    borderRadius: 50,
+  sheetContentWrapper: {
+    paddingHorizontal: 12,
+    paddingTop: 28
   },
-  icon: {
-    height: 9,
-    width: 9,
+  sheetHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  }, 
+  title: {
+    fontSize: 20,
+    fontFamily: "satoshi-black",
+    color: "#192126",
+    lineHeight: 24,
   },
 
-  title: {
-    fontSize: 18,
-    fontFamily: "bold",
-    color: "#111827",
-    lineHeight: 24.3,
-  },
 });
 
 export default BottomSheet;
