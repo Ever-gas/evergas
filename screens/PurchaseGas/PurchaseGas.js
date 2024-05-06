@@ -1,11 +1,18 @@
 import { useState } from 'react';
-import { SafeAreaView, Image, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
-import { ArrowLeft } from 'iconsax-react-native'; 
+import { TextInput, ScrollView, TouchableOpacity, View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { ArrowLeft, ArrangeVertical } from 'iconsax-react-native';
+import SelectPicker from '../../components/SelectPicker/SelectPicker';
+import Button from '../../components/Button/Button';
+import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 
 const PurchaseGas = ({ navigation }) => {
+  const [value, setValue] = useState('13,000');
+  const [buyInKG, setBuyInKG] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const handleToggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
-    <View style={styles.screenView}>
+    <ScrollView decelerationRate="fast" showsVerticalScrollIndicator={false}  style={styles.screenView}>
       <ImageBackground source={require("../../assets/Images/station-bg1.jpeg")} resizeMode="cover" style={styles.image} >
         <View style={styles.nav}>
           <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
@@ -13,12 +20,48 @@ const PurchaseGas = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-      <ScrollView style={styles.container}>
-        {/* <View style={styles.}>
-
-        </View> */}
-      </ScrollView>
-    </View>
+      <View style={styles.container}>
+        <Text style={styles.headerText}>Buy/Refill Gas</Text>
+        <View style={styles.quantityInputWrapper}>
+          <View style={[styles.amountWrapper, styles.borderRight]}>
+            <Text style={styles.unit}>{buyInKG ? 'KG' : '₦'}</Text>
+            <TextInput
+              inputMode='numeric'
+              cursorColor='#D9D9D9'
+              onChangeValue={inputValue => setValue(inputValue)}
+              value={buyInKG ? '10' : value}
+              style={[styles.input, { width: 'auto' }]}
+            />
+          </View>
+          <TouchableOpacity onPress={() => setBuyInKG(prev => !prev)} style={{ alignItems: 'center', }}>
+            <Text style={{ paddingLeft: 20 }}>
+              <ArrangeVertical size="24" color="#8C91A2" variant="Outline" />
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.gasInfoWrapper}>
+          <View style={[styles.borderRight, { paddingRight: 48 }]}>
+            <Text style={styles.infoTitle}>Price per kg</Text>
+            <Text style={styles.infoAmount}>1kg = 1560</Text>
+          </View>
+          <View style={{ paddingLeft: 48 }}>
+            <Text style={styles.infoTitle}>Gas Quantity</Text>
+            <Text style={styles.infoAmount}>8.33 kg</Text>
+          </View>
+        </View>
+        <View style={{ marginBottom: 20 }}>
+          <SelectPicker lableText="Cylinder size" placeholder="Select cylinder size" data={['12kg', '6kg', '3kg']} />
+        </View>
+        <View style={{ marginBottom: 20 }}>
+          <SelectPicker lableText="Delivery Option" placeholder="Select delivery option" data={['Pick-up']} />
+        </View>
+        <View style={styles.switchWrapper}>
+          <Text style={styles.switchText}>Recurring purchase?</Text>
+          <ToggleSwitch isEnabled={isEnabled} handleToggleSwitch={handleToggleSwitch} />
+        </View>
+        <Button title='Confirm Purchase' action={() => navigation.navigate('ConfirmPurchase')} />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -27,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF'
   },
-  image: { 
+  image: {
     height: 220,
   },
   nav: {
@@ -35,21 +78,93 @@ const styles = StyleSheet.create({
     paddingLeft: 24,
     height: 100,
     width: "auto"
-  }, 
+  },
   goBack: {
     height: 30,
     width: 30,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#FFFFFF',
-    display: 'flex',
+    borderColor: '#FFFFFF', 
     alignItems: 'center',
     justifyContent: 'center'
   },
   container: {
-   paddingVertical: 50,
-   paddingHorizontal: 12
+    paddingVertical: 50,
+    paddingHorizontal: 12
   },
+  headerText: {
+    lineHeight: 24,
+    fontSize: 20,
+    fontFamily: 'satoshi-bold',
+    textAlign: 'center',
+    color: '#192126'
+  },
+  quantityInputWrapper: { 
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 28
+  },
+  input: {
+    fontFamily: 'satoshi-black',
+    fontSize: 48,
+    lineHeight: 65,
+    // width: 100
+  },
+  amountWrapper: {
+    display: "flex",
+    flexDirection: 'row',
+    paddingRight: 14
+  },
+  unit: {
+    lineHeight: 40,
+    fontFamily: 'satoshi-black',
+    color: '#979797',
+    marginRight: 4
+  },
+  gasInfoWrapper: { 
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#F8F7F8',
+    borderRadius: 8,
+    paddingVertical: 18,
+    marginBottom: 19
+  },
+  borderRight: {
+    borderRightWidth: 1,
+    borderRightColor: '#D9D9D9',
+    // paddingRight: 48
+  },
+  infoTitle: {
+    fontFamily: 'satoshi-regular',
+    lineHeight: 16,
+    fontSize: 12,
+    color: '#6C727F',
+    textAlign: 'center'
+  },
+  infoAmount: {
+    fontFamily: 'satoshi-black',
+    lineHeight: 24,
+    fontSize: 16,
+    color: '#022C22',
+    textAlign: 'center'
+  },
+  switchWrapper: { 
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginTop: 5,
+    marginBottom: 50
+  },
+  switchText: {
+    fontFamily: 'satoshi-medium',
+    lineHeight: 24,
+    fontSize: 16,
+    color: '#192126',
+  }
+
 
 });
 

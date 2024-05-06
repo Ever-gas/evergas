@@ -72,7 +72,7 @@ const GasLevelEstimation = () => {
                 <Text style={styles.numberOfDays}>28-30<Text style={styles.days}>/days</Text></Text>
             </View>
             <View style={styles.reminderWrapper}>
-                <View style={{flex: 1}}>
+                <View style={{ flex: 1 }}>
                     <Text style={styles.head}>Reminder</Text>
                     <Text style={styles.description}>Set a weekly or monthly reminder for when to refill your gas</Text>
                 </View>
@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
         paddingTop: 12
     },
     estimate: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'space-between',
@@ -132,7 +131,6 @@ const styles = StyleSheet.create({
         marginTop: 30,
         borderRadius: 8,
         padding: 16,
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
@@ -148,11 +146,10 @@ const styles = StyleSheet.create({
         fontFamily: 'satoshi-medium',
         color: '#FFFFFF',
         lineHeight: 19,
-        fontSize: 14, 
-        
+        fontSize: 14,
+
     },
     iconWrapper: {
-        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#4D5461',

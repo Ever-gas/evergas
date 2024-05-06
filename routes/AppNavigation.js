@@ -10,12 +10,15 @@ import Verification from "../screens/Verification/Verification";
 import Dashboard from "../screens/Dashboard/Dashboard";
 import OrderGas from "../screens/OrderGas/OrderGas";
 import PurchaseGas from "../screens/PurchaseGas/PurchaseGas";
+import ConfirmPurchase from "../screens/ConfirmPurchase/ConfirmPurchase";
+import OrderSteps from "../screens/OrderSteps/OrderSteps";
 
 import Welcome from "../screens/WelcomeScreen/Welcome";
+import SearchStation from "../screens/SearchStation/SearchStation";
 
 const Stack = createStackNavigator()
 
-const AuthStack = () => {
+const AppNavigation = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Welcome' component={Welcome} options={{ headerShown: false }} />
@@ -27,6 +30,10 @@ const AuthStack = () => {
             <Stack.Screen name='Dashboard' component={Dashboard} options={{ headerShown: false }} />
             <Stack.Screen name='OrderGas' component={OrderGas} options={{ headerShown: false }} />
             <Stack.Screen name='PurchaseGas' component={PurchaseGas} options={{ headerShown: false }} />
+            <Stack.Screen name='ConfirmPurchase' component={ConfirmPurchase} options={{ headerShown: false }} />
+            <Stack.Screen name='OrderSteps' component={OrderSteps} options={{ headerShown: false }} />
+            <Stack.Screen name='SearchStation' component={SearchStation} options={{ headerShown: false }} />
+            
         </Stack.Navigator>
 
     )
@@ -59,4 +66,4 @@ const screens = {
 
 
 
-export default AuthStack
+export default AppNavigation
